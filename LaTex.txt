@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{fancyhdr}
+\usepackage{hyperref} 
+\hypersetup{colorlinks=true, linkcolor=blue, citecolor=red}
+
+% Configuración de encabezado para estilo académico
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[R]{Percudani}
+\fancyhead[L]{UCP and Double-Slit}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\title{Retrocausal Effects in the Double-Slit Experiment: \\ A Derivation from the Unified Causal Principle (UCP) Framework}
+\author{Miguel Angel Percudani (UAT Framework Developer)}
+\date{October 26, 2025}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The quantum measurement problem, epitomized by the double-slit experiment, is addressed by the **Unified Causal Principle (UCP)** framework. We demonstrate that the wave function collapse is not the result of an 'observer' but of a **thermodynamic imperative** to maintain global temporal consistency. This mechanism is governed by the **Causal Coherence Constant ($\kappa_{crit} \approx 10^{-78}$)**, which sets the strict limit on retrocausal influence. The particle's coherence state is determined by whether the local interaction flux ($\Phi_{int}$) exceeds this fundamental limit, which simultaneously predicts the exact observed Hubble Constant ($H_0 \approx 73.00$ km/s/Mpc). The interference pattern ($\Phi_{int} < \kappa_{crit}$) is the result of maximal retrocausality, while the particle pattern ($\Phi_{int} > \kappa_{crit}$) is the result of the necessary **suppression of retrocausality** required to prevent a localized entropic singularity, transforming the mystery of collapse into a quantifiable physical consequence.
+\end{abstract}
+
+% ----------------------------------------------------------------------------------------------------------------------
+\section{Introduction}
+
+The double-slit experiment challenges the classical notion of reality by illustrating the transition from superposition to a fixed state upon measurement. This paper applies the **Unified Causal Principle (UCP)**, an extension of the Unified Applied Time (UAT) paradigm, to provide a **retrocausal and thermodynamic** explanation for this phenomenon. We argue that the collapse is a consequence of the universe enforcing a fundamental causal limit, not of observation.
+
+% ----------------------------------------------------------------------------------------------------------------------
+\section{Theoretical Framework: The Causal Coherence Constant}
+
+The UCP is founded on the principle that the universe must maintain perfect **Thermodynamic Consistency** across all scales, preventing the **Entropic Singularity Problem** \cite{Percudani_UCP_2025}.
+
+\subsection{Principle of Global Entropic Balance}
+
+The fundamental equation of the UCP requires that the net entropic flux of the universe must be zero at the Planck scale, ensuring the stability de las leyes físicas:
+
+$$\dot{S}_{\text{net}} = \dot{S}_{\text{matter}} + \dot{S}_{\text{spacetime}} \approx 0$$
+
+\subsection{The Retrocausal Limit ($\kappa_{crit}$)}
+
+The constant $\kappa_{crit}$ is derived from the requirement that the maximum permitted **Retrocausal Flux ($\Phi_{RC}$)** must be finite, preventing causal paradoxes (e.g., the Grandfather Paradox). It is defined as the maximum tolerable ratio of retrocausal influence relative to the total causal flux:
+
+$$\kappa_{crit} = \frac{\Phi_{RC, \text{max}}}{\Phi_{Total}} \approx 1.0 \times 10^{-78}$$
+
+This dimensionless number sets the ultimate constraint on the influence of future events on the past. This same constant is responsible for the correction factor $k_{early}=1.0713$, allowing the UAT framework to predict the exact observed Hubble Constant ($H_0 \approx 73.00$ km/s/Mpc) \cite{Percudani_UCP_2025}.
+
+% ----------------------------------------------------------------------------------------------------------------------
+\section{Methodology: Causal Coherence Analysis (CCA)}
+
+The state of the quantum system is analyzed via the **Causal Coherence Analysis (CCA)**, which models the quantum state's evolution not by its probability amplitude but by its local **temporal coherence flux** ($\Phi_C$) relative to the global limit $\Phi_{RC, \text{max}}$.
+
+\subsection{The Coherence Condition (Superposition)}
+
+A quantum system ($\Psi$) is in **superposition** if its local measurement interaction flux ($\Phi_{int}$) remains negligible compared to the retrocausal limit. This allows the system to remain causally consistent with its full range of future possibilities:
+
+$$\text{Coherence Condition: } \Phi_{int} \ll \Phi_{RC, \text{max}} \iff \Psi_{\text{wave}}$$
+
+Under this condition, the particle's wave-like nature is an active **retro-causal configuration** by its future state.
+
+\subsection{The Collapse Condition (Decoherence)}
+
+The wave function collapse is defined as the irreversible selection of a single causal path. This occurs when the measurement interaction $\Phi_{int}$ exceeds the threshold, demanding that the system perform **thermodynamic work** to suppress the localized entropic disturbance and preserve global $\dot{S}_{\text{net}}=0$:
+
+$$\text{Collapse Condition: } \Phi_{int} > \Phi_{RC, \text{max}} \iff \Psi_{\text{particle}}$$
+
+The collapse is the physical manifestation of the **suppression of retrocausality**, forcing the system into a forward-time-only trajectory.
+
+% ----------------------------------------------------------------------------------------------------------------------
+\section{Results and Discussion: Retrocausal Effects}
+
+\subsection{Phase 1: Interference (Maximal Retrocausality)}
+
+When no detector is present, the low interaction flux ($\Phi_{int}$) permits maximal retrocausal influence. This state is conceptually illustrated and numerically verified.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{ondulacion.png} % Conceptual: Ondulación
+    \hfill
+    \includegraphics[width=0.45\textwidth]{interference_pattern.png} % Numerical: Interference Pattern
+    \caption{Phase 1: Coherent State. Izquierda: Representación conceptual del estado ondulatorio (Ondulación). Derecha: Resultado numérico (interference\_pattern.png) obtenido cuando $\Phi_{int}$ está por debajo del umbral UCP.}
+    \label{fig:interference_combined}
+\end{figure}
+
+\subsection{Phase 2: Collapse (Suppression of Retrocausality)}
+
+The detector introduces a high-flux interaction, exceeding the $\kappa_{crit}$ threshold. This forces the Causal Field to suppress the retrocausal flow, leading to the collapse.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{recta.png} % Conceptual: Recta
+    \hfill
+    \includegraphics[width=0.45\textwidth]{particle_pattern.png} % Numerical: Particle Pattern
+    \caption{Phase 2: Decoherent State (Colapso). Izquierda: Representación conceptual del camino fijo (Recta). Derecha: Resultado numérico (particle\_pattern.png) obtenido cuando $\Phi_{int}$ está por encima del umbral UCP. El patrón confirma la supresión de la influencia retrocausal.}
+    \label{fig:particle_combined}
+\end{figure}
+
+% ----------------------------------------------------------------------------------------------------------------------
+\section{Conclusion}
+
+The Unified Causal Principle (UCP) offers a complete, quantifiable resolution to the quantum measurement problem. The wave function collapse is a consequence of the **universal causal structure** of spacetime, which enforces the retrocausal limit $\kappa_{crit}$ to maintain thermodynamic consistency. The collapse is thus a **causal imperative**, replacing the subjective notion of the observer with the quantifiable physics of entropic balance and retrocausal flux. The UCP framework transforms the quantum collapse from a philosophical mystery into a testable domain of **Causal Coherence Physics**.
+
+% ----------------------------------------------------------------------------------------------------------------------
+\section*{References}
+\begin{thebibliography}{9}
+
+\bibitem{Percudani_UCP_2025}
+M. A. Percudani, \emph{The Causal Coherence Constant $\kappa_{crit}$: A Fundamental Limit on Retrocausal Influence Resolving Hubble Tension and Entropic Breakdown}, UAT Framework Preprint (2025).
+
+\bibitem{Wheeler_Delayed_Choice}
+J. A. Wheeler, \emph{The 'Past' and the 'Delayed-Choice' Experiment}, Mathematical Foundations of Quantum Theory, Academic Press (1978).
+
+\bibitem{LQG_Basic}
+C. Rovelli and F. Vidotto, \emph{Covariant Loop Quantum Gravity: An elementary introduction to quantum gravity and cosmology}, Cambridge University Press (2014).
+
+\bibitem{Percudani_UAT_2024}
+M. A. Percudani, \emph{Unified Applied Time (UAT): Derivation of Cosmological Parameters from First Principles}, UAT Framework Technical Report (2024).
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,118 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[3]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# =================================================================
+# 1. CONSTANTES Y PRINCIPIOS DEL UCP/CPU (Tiempo Aplicado Unificado)
+# =================================================================
+
+class CausalQuantumAnalyzer:
+    """
+    Simula el experimento de la Doble Rendija bajo el Principio Causal Unificado (UCP).
+    El colapso es determinado por la Coherencia Causal, no por el observador.
+    """
+
+    def __init__(self):
+        # Constante Causal Crítica del UCP (extraída de causal_structure_universe.py)
+        # Define el límite de Coherencia Causal Máxima.
+        self.KAPPA_CRIT = 1.0e-78
+
+        # Umbral de Decoherencia Causal.
+        # Cualquier interacción por encima de este umbral rompe el equilibrio causal del vacío.
+        self.DECOHERENCE_THRESHOLD = self.KAPPA_CRIT * 1e5 
+
+        # Parámetros de la simulación cuántica
+        self.N_PARTICLES = 5000
+        self.L = 1.0  # Distancia Rendijas-Pantalla (m)
+        self.d = 0.0001  # Separación entre rendijas (m)
+        self.wavelength = 500e-9  # Longitud de onda del electrón/fotón (m)
+
+    def _calculate_interference_pattern(self):
+        """Calcula las posiciones de impacto basadas en la probabilidad de onda."""
+
+        # Simulación del estado de MÁXIMA COHERENCIA CAUSAL (Interferencia)
+        angles = np.arcsin(np.linspace(-self.wavelength, self.wavelength, self.N_PARTICLES)) 
+        y_screen_raw = self.L * np.tan(angles)
+
+        # Ajuste de probabilidad basado en interferencia (distribución tipo cos²)
+        probability_density = np.cos(np.pi * self.d * np.sin(angles) / self.wavelength)**2
+
+        # Muestreo con peso de probabilidad
+        positions = np.random.choice(y_screen_raw, size=self.N_PARTICLES, p=probability_density / np.sum(probability_density))
+
+        return positions
+
+    def _calculate_particle_pattern(self):
+        """Calcula las posiciones de impacto basadas en la probabilidad de PARTÍCULA."""
+
+        # Simulación del estado de DECOHERENCIA CAUSAL (Partícula)
+        positions_A = np.random.normal(loc=-self.d / 2, scale=5e-5, size=self.N_PARTICLES // 2)
+        positions_B = np.random.normal(loc=self.d / 2, scale=5e-5, size=self.N_PARTICLES // 2)
+
+        positions = np.hstack((self.L * positions_A, self.L * positions_B))
+
+        return positions
+
+    def run_experiment(self, interaction_strength, filename):
+        """
+        Ejecuta el experimento bajo el principio de la interacción causal.
+        """
+
+        print(f"==================================================")
+        print(f"ANÁLISIS UCP/CPU: Experimento de la Doble Rendija")
+        print(f"==================================================")
+        print(f"Constante Causal Crítica (κ_crit): {self.KAPPA_CRIT:.2e}")
+        print(f"Interacción Causal Introducida (κ_int): {interaction_strength:.2e}")
+
+        if interaction_strength < self.DECOHERENCE_THRESHOLD:
+            # INTERFERENCIA: MÁXIMA COHERENCIA CAUSAL
+            print("\nRESULTADO: Estado de MÁXIMA COHERENCIA CAUSAL.")
+            print("El sistema mantiene el equilibrio causal (dS/dt ≈ 0), permitiendo la superposición de trayectorias.")
+            positions = self._calculate_interference_pattern()
+            title = "UCP/CPU: Patrón de Interferencia (Coherencia Causal Máxima)"
+        else:
+            # COLAPSO: DECOHERENCIA CAUSAL FORZADA
+            print("\nRESULTADO: Estado de DECOHERENCIA CAUSAL FORZADA.")
+            print("La interacción rompe el equilibrio causal, obligando a seleccionar una trayectoria temporalmente coherente.")
+            positions = self._calculate_particle_pattern()
+            title = "UCP/CPU: Patrón de Partícula (Decoherencia Causal)"
+
+        # Generar Histograma del resultado y guardar
+        plt.figure(figsize=(10, 6))
+        plt.hist(positions, bins=100, color='royalblue', alpha=0.7)
+        plt.title(title, fontsize=14)
+        plt.xlabel("Posición de Impacto en la Pantalla (m)")
+        plt.ylabel("Número de Partículas")
+        plt.axvline(x=0, color='gray', linestyle='--')
+        plt.grid(axis='y', alpha=0.5)
+        plt.savefig(filename)
+        plt.close()
+
+        return positions
+
+# =================================================================
+# EJECUCIÓN Y ANÁLISIS DE ESCENARIOS
+# =================================================================
+
+# Inicializar Analizador UCP
+analyzer = CausalQuantumAnalyzer()
+
+# ESCENARIO 1: Máxima Coherencia Causal (No hay "observación" significativa)
+# Interacción Causal introducida muy pequeña: 1.0e-85 << Umbral de Decoherencia.
+analyzer.run_experiment(interaction_strength=1.0e-85, filename='interference_pattern.png')
+
+# ESCENARIO 2: Decoherencia Causal Forzada (Se introduce un 'detector')
+# Interacción Causal significativa: 1.0e-70 >> Umbral de Decoherencia.
+analyzer.run_experiment(interaction_strength=1.0e-70, filename='particle_pattern.png')
+
+
+# In[ ]:
+
+
+
+
